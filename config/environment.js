@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'tmist-web',
+    podModulePrefix: 'tmist-web/modules',
     environment,
     rootURL: '/',
     locationType: 'auto',
