@@ -5,15 +5,24 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    minifyCSS: {
+      enabled: false
+    },
+    minifyJS: {
+      enabled: false
+    },
     cssModules: {
       plugins: [
         require('postcss-import'),
         require('postcss-extend'),
         require('postcss-cssnext'),
-        require('rucksack-css')({alias: false,hexRGBA: false,fallbacks: true})
+        require('rucksack-css')({
+          alias: false,
+          hexRGBA: false,
+          fallbacks: true
+        })
       ]
     },
-
     'ember-bootstrap': {
       'bootstrapVersion': 3,
       'importBootstrapFont': true,
