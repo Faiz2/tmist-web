@@ -6,8 +6,7 @@ export default DS.RESTAdapter.extend({
     defaultSerializer: '-default',
     host: 'http://127.0.0.1:9000',
 
-    queryObject(store, type, query) {
-        // this._super(...arguments)
+    queryObject(type, query) {
         // debugger,
         console.info(123)
         let header = {
