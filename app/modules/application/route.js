@@ -1,13 +1,13 @@
 import Route from '@ember/routing/route';
-import { inject } from '@ember/service'
+// import { inject } from '@ember/service'
 // import baseAjax from '../Common/BaseAjax';
 
 export default Route.extend({
-    ajaxService: inject(),
+    // ajaxService: inject(),
     model() {
-        let p = this.get('ajaxService')
-        p.set("url", `//api.github.com/users`)
-        console.info(p.get("url"))
+        // let p = this.get('ajaxService')
+        // p.set("url", `//api.github.com/users`)
+        // console.info(p.get("url"))
         // baseAjax.create().getRequest();
         // baseAjax.create({
         //     url: `//api.github.com/users`,
@@ -24,6 +24,14 @@ export default Route.extend({
         //         }
         //     }
         // }).postJSON();
+
+        let condition = {
+            "condition": {
+                "account": "alex",
+                "password": "a"
+            }
+        };
+        this.store.queryObject("query/users", condition)
 
         return {
             account: "Alex"

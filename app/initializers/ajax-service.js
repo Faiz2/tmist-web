@@ -17,7 +17,7 @@ const ajaxService = EmberObject.extend({
     // },
     getJSON() {
         return new RSVP.Promise((resolve, reject) => {
-            return this.get('ajax').request(url).then((data) => {
+            return this.get('ajax').request(this.get('url')).then((data) => {
                 return resolve({result: data});
             }, () => {
                 return reject("Access Error");
@@ -26,7 +26,7 @@ const ajaxService = EmberObject.extend({
     },
     postJSON() {
         new RVSP.Promise((resolve, reject) => {
-            return this.get('ajax').request(url, {
+            return this.get('ajax').request(this.get('url'), {
                 method: 'POST',
                 dataType: "json",
                 cache: false,
