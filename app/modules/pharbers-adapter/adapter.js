@@ -1,20 +1,26 @@
 import DS from 'ember-data';
 import { singularize } from 'ember-inflector';
-//RESTAdapter
+//RESTAdapter //singularize(this.buildURL(modelName))
 export default DS.RESTAdapter.extend({
-
-    defaultSerializer: '-default',
-    host: 'http://127.0.0.1:9000',
-
-    queryObject(type, query) {
-        // debugger,
-        console.info(123)
-        let header = {
+    init() {
+        this._super(...arguments)
+    },
+    headOpt: function(query) {
+        return {
             dataType: 'json',
             contentType: 'application/json,charset=utf-8',
             Accept: 'application/json,charset=utf-8',
             data: query
-        };
-        return this.ajax(singularize(this.buildURL(type.modelName)), 'POST', header);
-    }
+        }
+    },
+    defaultSerializer: '-default',
+    host: 'http://127.0.0.1:9000'
+    // ,queryObject(modelName, query) {
+    //     console.info(123)
+    //     return this.ajax(this.buildURL(modelName),
+    //                     'POST',
+    //                     this.get('headOpt')(query));
+    //
+    // }
+
 });
