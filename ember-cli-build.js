@@ -32,7 +32,8 @@ module.exports = function(defaults) {
         includePaths: [
             'node_modules/bootstrap-sass/assets/stylesheets'
         ]
-    }
+    },
+    // heimdalljs: {require("heimdalljs")}
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -1,6 +1,9 @@
 import DS from 'ember-data';
-import { singularize } from 'ember-inflector';
+// import { singularize } from 'ember-inflector';
 //RESTAdapter //singularize(this.buildURL(modelName))
+/**
+ * 公用的适配器
+ */
 export default DS.RESTAdapter.extend({
     init() {
         this._super(...arguments)
@@ -14,13 +17,13 @@ export default DS.RESTAdapter.extend({
         }
     },
     defaultSerializer: '-default',
-    host: 'http://127.0.0.1:9000'
-    // ,queryObject(modelName, query) {
-    //     console.info(123)
-    //     return this.ajax(this.buildURL(modelName),
-    //                     'POST',
-    //                     this.get('headOpt')(query));
-    //
-    // }
+    host: 'http://127.0.0.1:9000',
+    queryObject(store, type, query) {
+        window.console.info(this.buildURL(type.modelName))
+        return this.ajax(this.buildURL(type.modelName),
+                        'POST',
+                        this.get('headOpt')(query));
+
+    }
 
 });

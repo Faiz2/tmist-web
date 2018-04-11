@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('transform:query/users', 'Unit | Transform | query/users', {
+moduleFor('transform:object-transform', 'Unit | Transform | object transform', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });

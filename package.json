@@ -17,6 +17,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "babel6-plugin-strip-heimdall": "^6.0.1",
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
@@ -48,6 +49,7 @@
     "ember-truth-helpers": "^2.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "hack": "^0.8.1",
+    "heimdalljs": "^0.2.5",
     "loader.js": "^4.2.3",
     "postcss": "^6.0.21",
     "postcss-cssnext": "^3.1.0",

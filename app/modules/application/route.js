@@ -1,37 +1,24 @@
 import Route from '@ember/routing/route';
-// import { inject } from '@ember/service'
-// import baseAjax from '../Common/BaseAjax';
 
 export default Route.extend({
-    // ajaxService: inject(),
     model() {
-        // let p = this.get('ajaxService')
-        // p.set("url", `//api.github.com/users`)
-        // console.info(p.get("url"))
-        // baseAjax.create().getRequest();
-        // baseAjax.create({
-        //     url: `//api.github.com/users`,
-        //     parameter: {
-        //         condition: {
-        //             userName: "Alex"
-        //         },
-        //         action: {
-        //             name: "update",
-        //             data: [
-        //                 {name: "Alex", age: 24},
-        //                 {name: "Alfred", age: 31}
-        //             ]
-        //         }
-        //     }
-        // }).postJSON();
-
+        // TODO: 这个是个Test
         let condition = {
             "condition": {
                 "account": "alex",
                 "password": "a"
             }
         };
-        this.store.queryObject("query/users", condition)
+        this.store.queryObject("query/users", condition).then((data) => {
+            // let posts = this.store.peekAll('query/users');
+            window.console.info(data)
+            let posts = this.store.peekRecord('query/users', -1);
+            window.console.info(posts.get('id'))
+            // console.info(posts.content.map(item => item.id))
+            // console.info(data)
+        },() => {
+
+        });
 
         return {
             account: "Alex"
