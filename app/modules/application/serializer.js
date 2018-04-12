@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { typeOf } from '@ember/utils';
 import {
     query,
 } from '../common/serializer-split';
@@ -9,7 +10,10 @@ export default DS.JSONSerializer.extend({
         let data = null;
         if (hash) {
             this.normalizeUsingDeclaredMapping(modelClass, hash);
-            if (typeof(hash.result) === 'object') {
+
+            if (typeOf(hash.links) === 'object') {
+                this.normalizeUsingDeclaredMapping(modelClass, hash.links);
+            } else if (typeOf(hash.result) === 'object') {
                 this.normalizeUsingDeclaredMapping(modelClass, hash.result);
             }
 

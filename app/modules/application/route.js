@@ -11,9 +11,9 @@ export default Route.extend({
         };
         this.store.queryObject("query/users", condition).then((data) => {
             // let posts = this.store.peekAll('query/users');
-            window.console.info(data)
+            window.console.info(data);
             let posts = this.store.peekRecord('query/users', -1);
-            window.console.info(posts.get('id'))
+            window.console.info(posts.get('id'));
             // console.info(posts.content.map(item => item.id))
             // console.info(data)
         },() => {
