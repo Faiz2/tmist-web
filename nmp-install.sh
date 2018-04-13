@@ -33,5 +33,14 @@ npm i postcss-cssnext --save-dev
 echo -e "\033[47;30m 10.postcss-import \033[0m"
 npm i postcss-import --save-dev
 
+echo -e "\033[47;30m 11.ember-bootstrap \033[0m"
+ember install ember-bootstrap
+
+echo -e "\033[47;30m 12.ember-cli-sass ember-css-modules-sass \033[0m"
+ember install ember-cli-sass ember-css-modules-sass
+
+echo -e "\033[47;30m 13.bootstrap-sas \033[0m"
+npm i bootstrap-sass --save-dev
+
 set +e
 echo "finish, have fun"
