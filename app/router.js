@@ -8,6 +8,11 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('page-not-found', {path: '/*path'});
+  this.route('pharbers', function() {
+    this.route('v1', function() {
+      this.route('init')
+    });
+  });
 });
 
 export default Router;
