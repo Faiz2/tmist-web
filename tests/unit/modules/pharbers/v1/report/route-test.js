@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:pharbers/v1/init', 'Unit | Route | pharbers/v1/init', {
+moduleFor('route:pharbers/v1/report', 'Unit | Route | pharbers/v1/report', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
