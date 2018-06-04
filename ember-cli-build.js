@@ -3,18 +3,18 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-    // 判断是否需要sourceMaps
-    let sourceMap = process.env.EMBER_ENV === 'production' ? 'false' : 'inline';
-    console.info(sourceMap);
+	// 判断是否需要sourceMaps
+	let sourceMap = process.env.EMBER_ENV === 'production' ? 'false' : 'inline';
+	console.info(sourceMap);
 	let app = new EmberApp(defaults, {
-        storeConfigInMeta: false,
-        // SRI: {
-        //   enabled: false
-        // },
-        fingerprint: {
-          enabled: false
-        },
 		// Add options here
+		storeConfigInMeta: false,
+		// SRI: {
+		//   enabled: true
+		// },
+		fingerprint: {
+			enabled: false
+		},
 		// minifyCSS: {
 		//   enabled: false
 		// },
@@ -39,16 +39,17 @@ module.exports = function(defaults) {
 			'importBootstrapCSS': true
 		},
 		sassOptions: {
-            includePaths: [
-                'node_modules/bootstrap-sass/assets/stylesheets',
-                'node_modules/ember-power-select/app/styles',
-                'node_modules/ember-basic-dropdown/app/styles'
-            ]
+			includePaths: [
+				'node_modules/bootstrap-sass/assets/stylesheets',
+				'node_modules/ember-power-select/app/styles',
+				'node_modules/ember-basic-dropdown/app/styles'
+			]
 		},
-        babel: {
-            sourceMaps: sourceMap
-        }
+		babel: {
+			sourceMaps: sourceMap
+		}
 	});
-    app.import("vendor/echarts/echarts.js")
+    //第三方静态文件导入
+	app.import("vendor/echarts/echarts.js")
 	return app.toTree();
 };

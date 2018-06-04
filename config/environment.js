@@ -48,8 +48,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+      // ENV.rootURL = "/";
+      // ENV.locationType = 'hash';
+      // here you can enable a production-specific feature
   }
-
   return ENV;
 };
