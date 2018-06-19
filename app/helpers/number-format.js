@@ -1,12 +1,14 @@
 import { helper } from '@ember/component/helper';
 
 export function numberFormat(params /*, hash*/ ) {
-	if (isNaN(params)) {
+	let p = params.toString().replace(/[,，、]/g, "");
+	if (isNaN(p)) {
 		// throw new TypeError("num is not a number");
 		// console.warn("input is not a number")
-		return params;
+		return p;
 	} else {
-		let groups = (/([\-\+]?)(\d*)(\.\d+)?/g).exec("" + params),
+		let zznf = /([-+]?)(\d*)(\.\d+)?/g
+		let groups = zznf.exec("" + p),
 			mask = groups[1], //符号位
 			integers = (groups[2] || "").split(""), //整数部分
 			decimal = groups[3] || "", //小数部分
@@ -18,7 +20,7 @@ export function numberFormat(params /*, hash*/ ) {
 			} else {
 				return previousValue + currentValue;
 			}
-		}, "").replace(/\,$/g, "");
+		}, "").replace(/,$/g, "");
 		return mask + temp + decimal;
 	}
 }
