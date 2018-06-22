@@ -1,28 +1,92 @@
-.one {
-    width: 400px;
-    height: 400px;
-    background-color: #ccc;
-    margin-left: 20px;
-    float: left;
+.login-container {
+    height: 100%;
 }
-.tow {
-    width: 400px;
-    height: 400px;
-    background-color: #ccc;
-    margin-left: 20px;
-    float: left;
+p {
+    margin: 0;
 }
-.three {
-    width: 400px;
+.login-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 650px;
     height: 400px;
-    background-color: #ccc;
-    margin-left: 20px;
-    float: left;
-}
-.four {
-    width: 400px;
-    height: 400px;
-    background-color: #ccc;
-    margin-left: 20px;
-    float: left;
+    border-radius: 12px;
+    background-image: linear-gradient(111deg, #4D6895 0%, #98A3C5 100%);
+    box-shadow: 0 4px 8px 0 rgba(30,30,30,0.50);
+    color: #FFFFFF;
+    .login-left {
+        display: inline-block;
+        width: 360px;
+        height: 100%;
+        vertical-align: top;
+        text-align: center;
+        color: #FFFFFF;
+        img {
+            margin-top: 86px;
+            margin-bottom: 30px;
+        }
+        .login-title {
+            margin: 0;
+            line-height: 30px;
+            font-family: PingFangTC-Regular;
+            font-size: 18px;
+            letter-spacing: 1.8px;
+        }
+        .login-title-en {
+            margin: 0;
+            letter-spacing: 1.2px;
+            text-align: center;
+            line-height: 30px;
+            font-family: PingFangTC-Regular;
+            font-size: 12px;
+        }
+    }
+    .login-right {
+        display: inline-block;
+        width: 286px;
+        margin: 20px 0;
+        padding: 26px 16px;
+        height: 360px;
+        vertical-align: top;
+        border-left: 2px solid rgba(226,226,226,.1);
+        // color: #fff;
+        p:first-child {
+            font-family: PingFangTC-Regular;
+            font-size: 18px;
+            letter-spacing: 3.75px;
+        }
+        input {
+            margin-top: 24px;
+            padding-left: 8px;
+            width: 246px;
+            height: 30px;
+            border: 0;
+            border-radius: 3px;
+            opacity: 0.27;
+            background: #FFFFFF;
+        }
+        /**
+        * 修改placeholder 样式
+        */
+        ::-webkit-input-placeholder {
+            color: #FFFFFF;
+        }
+        :-moz-placeholder {
+            color: #FFFFFF;
+        }
+        ::-moz-placeholder {
+            color: #FFFFFF;
+        }
+        :-ms-input-placeholder {
+            color: #FFFFFF;
+        }
+        button {
+            margin-top: 70px;
+            width: 100%;
+            height: 30px;
+            border: 0;
+            background-color: $btn-color;
+        }
+    }
 }
