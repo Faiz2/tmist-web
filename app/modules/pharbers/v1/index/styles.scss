@@ -63,14 +63,14 @@ p {
             height: 30px;
             border: 0;
             border-radius: 3px;
-            opacity: 0.27;
-            background: #FFFFFF;
+            color: #fff;
+            background: rgba(255,255,255,.27);
         }
         /**
         * 修改placeholder 样式
         */
         ::-webkit-input-placeholder {
-            color: #FFFFFF;
+            color: #fff;
         }
         :-moz-placeholder {
             color: #FFFFFF;
@@ -81,11 +81,18 @@ p {
         :-ms-input-placeholder {
             color: #FFFFFF;
         }
+        .foget-password {
+            margin: 10px 0;
+            font-size: 12px;
+            text-align: right;
+            letter-spacing: 2.08px;
+        }
         button {
             margin-top: 70px;
             width: 100%;
             height: 30px;
             border: 0;
+            border-radius: $default-radius;
             background-color: $btn-color;
         }
     }
