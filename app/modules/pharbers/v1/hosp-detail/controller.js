@@ -13,7 +13,6 @@ export default Controller.extend({
 
 	},
 	actions: {
-		// body
 		budget() {
 			// console.log('budget');
 			this.toggleProperty('budgetTip');
@@ -24,8 +23,6 @@ export default Controller.extend({
 			this.toggleProperty('humanTip');
 			this.hidden('budgetTip');
 		},
-		hospDetail() {
-			this.transitionToRoute('pharbers.v1.hosp-detail')
-		}
+
 	}
 });
