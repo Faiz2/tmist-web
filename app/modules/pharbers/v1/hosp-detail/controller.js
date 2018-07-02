@@ -23,6 +23,11 @@ export default Controller.extend({
 			this.toggleProperty('humanTip');
 			this.hidden('budgetTip');
 		},
-
+		changeTabs() {
+			console.log(e)
+		},
+		changeMedicTab() {
+			console.info('changeMedicTab')
+		}
 	}
 });
