@@ -78,45 +78,102 @@
 		</div>
 		<div local-class="hosp-detail" class="container">
 			<div local-class="basic-info" class="row">
-				<div local-class="info-left" class="col-md-8">
-					<p local-class="title"> <span local-class="hosp-title">中日医院</span> <span local-class="hosp-tab tab-active"> 基础信息</span> <span local-class="hosp-tab">医院新闻动态</span> <span local-class="hosp-tab">用药政策/理念</span> </p>
+				<div local-class="info-left" class="col-md-8 col-sm-8">
+					<p local-class="title"> <span local-class="hosp-title">中日医院</span> <span local-class="hosp-tab tab-active" {{action "changeTabs"}}> 基础信息</span> <span local-class="hosp-tab" {{action "changeTabs"}}>医院新闻动态</span> <span local-class="hosp-tab" {{action "changeTabs"}}>用药政策/理念</span> </p>
 					<div local-class="tab-container">
-						<div class="tab-content">
+						<div local-class="tab-content">
 							<p>医院类型</p>
 							<p>综合</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>医院等级</p>
+							<p>三甲</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>病床数量</p>
+							<p>1000</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>特色科室</p>
+							<p>皮肤科</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>门诊人次/年</p>
+							<p>1034232</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>手术台数</p>
+							<p>1000</p>
 						</div>
-						<div class="tab-content">
-							<p>医院类型</p>
-							<p>综合</p>
+						<div local-class="tab-content">
+							<p>住院人数/年</p>
+							<p>1000</p>
+						</div>
+						<div local-class="tab-content">
+							<span>更多</span>
 						</div>
 					</div>
 				</div>
-				<div local-class="info-right" class="col-md-4">
+				<div local-class="info-right" class="col-md-4 col-sm-4">
+					<div local-class="sign-person" class="row">
+						<div local-class="sign-left" class="col-md-9 col-sm-9">
+							<p>人员分配</p>
+							<p>-请分配代表负责该医院</p>
+						</div>
+						<div local-class="sign-right" class="col-md-3 col-sm-9">
+							<span>+</span>
+						</div>
+					</div>
 
 				</div>
 			</div>
 			<div local-class="medicine-info">
+				<div local-class="medicine">
+					<div local-class="left">
+						<p local-class="title">口服抗生素</p>
+						<div local-class="properties">
+							<div local-class="property">
+								<p>药品市场潜力</p>
+								<p>5970000</p>
+							</div>
+							<div local-class="property">
+								<p>潜力增长</p>
+								<p><span></span>99%</p>
+							</div>
+							<div local-class="property">
+								<p>上期销售额</p>
+								<p>557744</p>
+							</div>
+							<div local-class="property">
+								<p>上期增长</p>
+								<p><span></span>99%</p>
+							</div>
+							<div local-class="property">
+								<p>份额</p>
+								<p>99.9%</p>
+							</div>
+							<div local-class="property">
+								<p>上期贡献率</p>
+								<p>41.3%</p>
+							</div>
+						</div>
+						<div local-class="compare">
+							<div local-class="left-tabs">
+								<span local-class="tab medicine-tab-active" {{action "changeMedicTab"}}>a</span>
+								<span local-class="tab">a</span>
 
+								<span local-class="tab">a</span>
+
+							</div>
+							<div local-class="right-content">
+
+							</div>
+						</div>
+					</div>
+					<div local-class="right">
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
