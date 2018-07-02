@@ -14,10 +14,15 @@ Router.map(function() {
       this.route('v1', {
           path: 'v1/tm'
       }, function() {
-          this.route('report');
-          this.route('train');
-          this.route('hospital');
-          this.route('hosp-detail');
+        this.route('report');
+        this.route('train');
+        this.route('hospital');
+        this.route('hosp-detail');
+        this.route('result', function() {
+          this.route('whole');
+          this.route('hospital-report');
+          this.route('represent-report');
+        });
       });
       this.route('v2', {
           path: 'v2/tm'
