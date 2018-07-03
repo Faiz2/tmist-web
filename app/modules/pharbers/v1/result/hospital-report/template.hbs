@@ -70,8 +70,9 @@
 		<div local-class="hosp-detail" class="container">
 			<div local-class="basic-info" class="row">
                 <div local-class="select">
-                    <span local-class="title">医院-产品销售报告</span>
-                    <span class="glyphicon glyphicon-triangle-bottom"></span>
+                    <span local-class="title"  {{action 'tab'}}>医院-产品销售报告</span>
+                    <span class="glyphicon glyphicon-triangle-bottom"  {{action 'tab'}}></span>
+					{{#if tabLi}}
                     <div local-class="drop">
                         <ul>
                             <li>
@@ -79,11 +80,24 @@
                                     整体销售表现
                                 {{/link-to}}
                             </li>
-                            <li>代表-产品销售报告</li>
-                            <li>资源投入与产出</li>
-                            <li>代表指标与资源</li>
+                            <li>
+								{{#link-to "pharbers.v1.result.represent-report"}}
+								代表-产品销售报告
+								{{/link-to}}
+							</li>
+                            <li>
+								{{#link-to "pharbers.v1.result.resource"}}
+								资源投入与产出
+								{{/link-to}}
+							</li>
+                            <li>
+								{{#link-to "pharbers.v1.result.represent"}}
+								代表指标与资源
+								{{/link-to}}
+							</li>
                         </ul>
                     </div>
+					{{/if}}
                 </div>
                 <div local-class="overview">
                     <div local-class="block">

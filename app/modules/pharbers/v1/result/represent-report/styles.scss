@@ -267,11 +267,10 @@
 					margin-right: 20px;
 				}
 				.drop {
-					z-index: 1;
 					position: absolute;
 					width: 140px;
 					height: 130px;
-					background: rgba(255,255,255,1);
+					background: rgba(255,255,255,0.10);
 					border: 1px solid rgba(255,255,255,0.30);
 					border-radius: 5px;
 					padding: 5px 5px;
@@ -281,7 +280,7 @@
 						margin-left: -30px;
 						padding: 5px 0;
 						a {
-							color: #000;
+							color: #fff;
 							text-decoration: none;
 						}
 						a:hover {
