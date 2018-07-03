@@ -129,7 +129,7 @@
 			</div>
 			<div local-class="medicine-info">
 				<div local-class="medicine">
-					<div local-class="left">
+					<div local-class="medicine-left">
 						<p local-class="title">口服抗生素</p>
 						<div local-class="properties">
 							<div local-class="property">
@@ -159,20 +159,56 @@
 						</div>
 						<div local-class="compare">
 							<div local-class="left-tabs">
-								<span local-class="tab medicine-tab-active" {{action "changeMedicTab"}}>a</span>
+								<span local-class="tab tab-medicine-detail medicine-tab-active" {{action "changeMedicTab"}}>a</span>
 								<span local-class="tab">a</span>
 
 								<span local-class="tab">a</span>
 
 							</div>
 							<div local-class="right-content">
-								should in here
-								{{self-table }}
+								<div local-class="medicine-detail" style="display: none">
+									<p><span></span>药品详情</p>
+									{{self-table model=model}}
+								</div>
+								<div local-class="hospital-deploy" >
+									<p><span></span>历史部署</p>
+									{{self-table model=columnsHospitalValue columns=columnsHospital}}
+								</div>
+								<div local-class="competition-products" style="display: none">
+									<p><span></span>竞品销售分析</p>
+									{{self-table model=columnsProductsValue columns=columnsProducts}}
+								</div>
 							</div>
 						</div>
 					</div>
-					<div local-class="right">
+					<div local-class="medicine-right">
+						<div local-class="inputarea">
+							<div local-class="input-left">
+								<p>指标设定</p>
+								<p>{{input type="text"}}元</p>
+							</div>
+							<div local-class="input-right">
+								<p>指标增长</p>
+								<p>{{targetIncrease}}</p>
+							</div>
+						</div>
+						<div local-class="inputarea">
+							<div local-class="input-left">
+								<p>预算分配</p>
+								<p>{{input type="text"}}元</p>
+							</div>
+							<div local-class="input-right">
+								<p>预算所占%</p>
+								<p>{{budget}}</p>
+							</div>
+						</div>
+						<div local-class="inputarea">
+							<div local-class="input-left">
+								<p>时间分配</p>
+								<p>{{input type="text"}}天</p>
+							</div>
 
+						</div>
 					</div>
 				</div>
 			</div>

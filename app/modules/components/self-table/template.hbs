@@ -1,5 +1,26 @@
-{{yield}}
-{{#light-table table as |t|}}
-	  {{t.head}}
-	  {{#t.body as |body|}}{{/t.body}}
+
+{{#light-table table height='180px' tableClassNames='medicine-table' as |t|}}
+
+  {{t.head onColumnClick=(action 'sortByColumn') fixed=true}}
+
+  {{#t.body as |body|}}
+    {{!-- {{#body.expanded-row as |row|}}
+      Hello <b>{{row.firstName}}</b>
+    {{/body.expanded-row}} --}}
+
+    {{#if isLoading}}
+      {{#body.loader}}
+        Loading...
+      {{/body.loader}}
+    {{/if}}
+
+    {{#if table.isEmpty}}
+      {{#body.no-data}}
+        No data found.
+      {{/body.no-data}}
+    {{/if}}
+  {{/t.body}}
+
+  {{!-- {{t.foot}} --}}
+
 {{/light-table}}
