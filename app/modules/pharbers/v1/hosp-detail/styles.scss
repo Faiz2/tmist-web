@@ -399,7 +399,7 @@
 		border-radius: 3*$default-radius;
 		background-color: #F6F7F9;
 
-		.left {
+		.medicine-left {
 			display: inline-block;
 			padding-left: 15px;
 			width: 75%;
@@ -477,18 +477,105 @@
 					border-radius: 0 4px 4px 0;
 					background-color: #FFF;
 					font-size: 14px;
+
+					.competition-products,
+					.hospital-deploy,
+					.medicine-detail {
+						padding: 20px 15px;
+
+						p:first-child {
+							margin-bottom: 16px;
+							height: 17px;
+							line-height: 17px;
+							font-family: PingFangTC-Regular;
+							font-size: 12px;
+							color: #6E6E6E;
+							letter-spacing: 1px;
+						}
+					}
+
+					:global(.ember-view) {
+						height: auto;
+					}
+
+					:global(.medicine-table .lt-head tr:first-child) {
+						padding-bottom: 4px;
+						height: 20px;
+						border-bottom: 1px solid rgba(111,109,204,.10);
+						font-size: 12px;
+						font-weight: 100;
+						letter-spacing: 0.83px;
+						color: #4A4A4A;
+					}
+
+					:global(.lt-row) {
+						height: 40px;
+						line-height: 40px;
+						font-size: 12px;
+						letter-spacing: 1.62px;
+						color: #3D3D3D;
+					}
 				}
 			}
 		}
 
-		.right {
+		.medicine-right {
 			display: inline-block;
-			padding-right: 15px;
+			// padding-right: 15px;
+			padding-top: 80px;
 			width: 25%;
 			height: 100%;
 			vertical-align: top;
 			border-left: 1px dashed #1F4F87;
-			background-color: orange;
+
+			.inputarea {
+				margin: 0 auto 15px;
+				padding: 10px 12px;
+				width: 80%;
+				height: 70px;
+				border-radius: $default-radius;
+				background: #F0F2FF;
+				box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+
+				div {
+					display: inline-block;
+					vertical-align: top;
+					font-size: 12px;
+
+					&:first-child {
+						width: 120px;
+					}
+
+					&.input-right {
+						p:last-child {
+							text-align: center;
+							font-size: 16px;
+							line-height: 30px;
+						}
+					}
+
+					p:first-child {
+						margin-bottom: 5px;
+						color: #474747;
+						letter-spacing: 0.56px;
+					}
+
+					p:last-child {
+						line-height: 44px;
+					}
+
+					input {
+						padding-top: 15px;
+						padding-bottom: 0;
+						width: 100px;
+						border: 0;
+						border-radius: $default-radius;
+					}
+				}
+				// div:first-child {
+				// 	width: 120px;
+				// }
+			}
 		}
 	}
 }
