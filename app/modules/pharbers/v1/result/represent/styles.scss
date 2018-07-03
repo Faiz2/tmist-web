@@ -267,7 +267,6 @@
 					margin-right: 20px;
 				}
 				.drop {
-					z-index: 1;
 					position: absolute;
 					width: 140px;
 					height: 130px;
@@ -282,10 +281,10 @@
 						padding: 5px 0;
 						a {
 							color: #000;
-							text-decoration: none;
+							text-indent: none;
 						}
 						a:hover {
-							color: #ccc;
+							color:#ccc;
 						}
 					}
 				}

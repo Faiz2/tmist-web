@@ -22,6 +22,8 @@ Router.map(function() {
           this.route('whole');
           this.route('hospital-report');
           this.route('represent-report');
+          this.route('resource');
+          this.route('represent');
         });
       });
       this.route('v2', {

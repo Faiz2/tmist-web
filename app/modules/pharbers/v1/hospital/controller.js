@@ -10,7 +10,7 @@ export default Controller.extend({
 	},
 	init() {
 		this._super(...arguments);
-
+ 
 	},
 	actions: {
 		// body
