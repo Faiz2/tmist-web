@@ -30,17 +30,17 @@ export default Component.extend({
 		}, {
 			label: '上市时间',
 			valuePath: 'selltime',
-			width: '100px',
+			width: '80px',
 			align: 'center',
 		}, {
 			label: '医保类型',
 			valuePath: 'medicalinsurance',
-			width: '100px',
+			width: '80px',
 			align: 'center',
 		}, {
 			label: '研发类型',
 			valuePath: 'development',
-			width: '100px',
+			width: '80px',
 			align: 'center',
 		}, {
 			label: '公司考核价',

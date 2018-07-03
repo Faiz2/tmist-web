@@ -208,6 +208,10 @@
 		font-size: 0;
 		color: #676767;
 
+		p:first-child {
+			cursor: pointer;
+		}
+
 		p {
 			display: inline-block;
 			height: 17px;
@@ -292,6 +296,7 @@
 			font-size: 12px;
 			border-radius: 100px;
 			background-color: #656565;
+			cursor: pointer;
 		}
 
 		.tab-active {
@@ -304,6 +309,11 @@
 		display: flex;
 		justify-content: space-around;
 		font-size: 0;
+	}
+
+	.news,
+	.policy {
+		font-size: 16px;
 	}
 
 	.tab-content {
@@ -393,6 +403,7 @@
 	font-size: 0;
 
 	.medicine {
+		margin-bottom: 20px;
 		padding: 15px 0;
 		width: 100%;
 		height: 360px;
@@ -465,6 +476,11 @@
 						background-color: #FFFFFF;
 						opacity: 0.56;
 						cursor: pointer;
+
+						.tabsa {
+							height: 100%;
+							border-radius: 2*$default-radius;
+						}
 					}
 
 					.medicine-tab-active {

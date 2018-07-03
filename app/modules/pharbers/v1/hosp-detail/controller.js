@@ -3,6 +3,11 @@ import Controller from '@ember/controller';
 export default Controller.extend({
 	budgetTip: false,
 	humanTip: false,
+	baseInfo: true, // 基本信息显示与否
+	news: false, // 医院新闻动态显示与否
+	usePolicy: false, // 用药政策/理念 显示与否
+
+
 	targetIncrease: 0,
 	budget: 0,
 	columnsHospital: [{
@@ -80,8 +85,26 @@ export default Controller.extend({
 			this.toggleProperty('humanTip');
 			this.hidden('budgetTip');
 		},
-		changeTabs() {
-			console.log(e)
+		submit() {
+			this.transitionToRoute('pharbers.v1.result.whole')
+		},
+		backHospList() {
+			this.transitionToRoute('pharbers.v1.hospital')
+		},
+		changeTabsInfo() {
+			this.set('baseInfo', true);
+			this.set('news', false);
+			this.set('usePolicy', false);
+		},
+		changeTabsNews() {
+			this.set('baseInfo', false);
+			this.set('news', true);
+			this.set('usePolicy', false);
+		},
+		changeTabsPolicy() {
+			this.set('baseInfo', false);
+			this.set('news', false);
+			this.set('usePolicy', true);
 		},
 		changeMedicTab() {
 			console.info('changeMedicTab')
