@@ -11,7 +11,7 @@ export default Controller.extend({
 	targetIncrease: 0,
 	budget: 0,
 	columnsHospital: [{
-		label: '时间',
+		label: '产品',
 		valuePath: 'time',
 		width: '80px',
 		align: 'center',
@@ -64,7 +64,17 @@ export default Controller.extend({
 		indicator: '50,000',
 		growth: '1.23',
 		achievementrate: '95%',
-	}],
+	},{
+		time: '星期一',
+		representative: '小三',
+		timemanagement: '12天',
+		budgetallocation: '5,000',
+		budgetratio: '5,000',
+		indicator: '50,000',
+		growth: '1.23',
+		achievementrate: '95%',
+	},
+],
 	hidden(hiddenProperty) {
 		if (this.get(hiddenProperty)) {
 			this.set(hiddenProperty, false)
