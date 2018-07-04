@@ -146,7 +146,7 @@
 				</div>
 			</div>
 			<div local-class="medicine-info">
-				<div local-class="medicine">
+				{{!-- <div local-class="medicine">
 					<div local-class="medicine-left">
 						<p local-class="title">口服抗生素</p>
 						<div local-class="properties">
@@ -176,27 +176,6 @@
 							</div>
 						</div>
 						<div local-class="compare">
-							{{!-- <div local-class="left-tabs">
-								<span local-class="tab tab-medicine-detail medicine-tab-active" {{action "changeMedicTab"}}>a</span>
-								<span local-class="tab">a</span>
-
-								<span local-class="tab">a</span>
-
-							</div>
-							<div local-class="right-content">
-								<div local-class="medicine-detail" style="display: none">
-									<p><span></span>药品详情</p>
-									{{self-table model=model}}
-								</div>
-								<div local-class="hospital-deploy">
-									<p><span></span>历史部署</p>
-									{{self-table model=columnsHospitalValue columns=columnsHospital}}
-								</div>
-								<div local-class="competition-products" style="display: none">
-									<p><span></span>竞品销售分析</p>
-									{{self-table model=columnsProductsValue columns=columnsProducts}}
-								</div>
-							</div> --}}
 							<ul class="nav nav-pills nav-stacked" local-class="left-tabs">
 								<li local-class="tab" class="active"><a local-class="tabsa" href="#tab_detail" data-toggle="pill">Pill A</a></li>
 								<li local-class="tab"><a local-class="tabsa" href="#tab_hospital"  data-toggle="pill"></a></li>
@@ -248,118 +227,189 @@
 
 						</div>
 					</div>
-				</div>
+				</div> --}}
+				{{#each medicines as |medic|}}
+					<div local-class="medicine">
+						<div local-class="medicine-left">
+							<p local-class="title">{{medic.name}}</p>
+							<div local-class="properties">
+								<div local-class="property">
+									<p>药品市场潜力</p>
+									<p>{{medic.marketpotential}}</p>
+								</div>
+								<div local-class="property">
+									<p>潜力增长</p>
+									<p><span></span>{{medic.potentialgrowth}}%</p>
+								</div>
+								<div local-class="property">
+									<p>上期销售额</p>
+									<p>{{medic.previoussales}}</p>
+								</div>
+								<div local-class="property">
+									<p>上期增长</p>
+									<p><span></span>{{medic.previousgrowth}}%</p>
+								</div>
+								<div local-class="property">
+									<p>份额</p>
+									<p>{{medic.share}}%</p>
+								</div>
+								<div local-class="property">
+									<p>上期贡献率</p>
+									<p>{{medic.contributionrate}}%</p>
+								</div>
+							</div>
+							<div local-class="compare">
 
-				<div local-class="medicine">
-					<div local-class="medicine-left">
-						<p local-class="title">口服抗生素</p>
-						<div local-class="properties">
-							<div local-class="property">
-								<p>药品市场潜力</p>
-								<p>5970000</p>
-							</div>
-							<div local-class="property">
-								<p>潜力增长</p>
-								<p><span></span>99%</p>
-							</div>
-							<div local-class="property">
-								<p>上期销售额</p>
-								<p>557744</p>
-							</div>
-							<div local-class="property">
-								<p>上期增长</p>
-								<p><span></span>99%</p>
-							</div>
-							<div local-class="property">
-								<p>份额</p>
-								<p>99.9%</p>
-							</div>
-							<div local-class="property">
-								<p>上期贡献率</p>
-								<p>41.3%</p>
-							</div>
-						</div>
-						<div local-class="compare">
-							{{!-- <div local-class="left-tabs">
-								<span local-class="tab tab-medicine-detail medicine-tab-active" {{action "changeMedicTab"}}>a</span>
-								<span local-class="tab">a</span>
-
-								<span local-class="tab">a</span>
-
-							</div>
-							<div local-class="right-content">
-
-									<div local-class="medicine-detail">
+								<ul class="nav nav-pills nav-stacked" local-class="left-tabs">
+									<li local-class="tab" class="active"><a local-class="tabsa" href="#tab-detail" data-toggle="pill">Pill A</a></li>
+									<li local-class="tab"><a local-class="tabsa" href="#tab_hospital" data-toggle="pill"></a></li>
+									<li local-class="tab"><a local-class="tabsa" href="#tab_products" data-toggle="pill">Pill C</a></li>
+								</ul>
+								<div class="tab-content" local-class="right-content">
+									<div class="tab-pane active" local-class="medicine-detail" id="tab-detail">
 										<p><span></span>药品详情</p>
 										{{self-table model=model}}
 									</div>
-
-
-									<div local-class="hospital-deploy" style="display:none">
+									<div local-class="hospital-deploy" class="tab-pane" id="tab_hospital">
 										<p><span></span>历史部署</p>
 										{{self-table model=columnsHospitalValue columns=columnsHospital}}
 									</div>
-
-									<div local-class="competition-products" style="display: none">
+									<div local-class="competition-products" class="tab-pane" id="tab_products">
 										<p><span></span>竞品销售分析</p>
 										{{self-table model=columnsProductsValue columns=columnsProducts}}
 									</div>
 
-							</div> --}}
-
-							<ul class="nav nav-pills nav-stacked" local-class="left-tabs">
-								<li local-class="tab" class="active"><a local-class="tabsa" href="#tab2_detail" data-toggle="pill">Pill A</a></li>
-								<li local-class="tab"><a local-class="tabsa" href="#tab2_hospital"  data-toggle="pill"></a></li>
-								<li local-class="tab"><a local-class="tabsa" href="#tab2_products" data-toggle="pill">Pill C</a></li>
-							</ul>
-							<div class="tab-content" local-class="right-content">
-								<div class="tab-pane active" local-class="medicine-detail" id="tab2_detail">
-									<p><span></span>药品详情</p>
-									{{self-table model=model}}
 								</div>
-								<div local-class="hospital-deploy" class="tab-pane" id="tab2_hospital">
-									<p><span></span>历史部署</p>
-									{{self-table model=columnsHospitalValue columns=columnsHospital}}
+							</div>
+						</div>
+						<div local-class="medicine-right">
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>指标设定</p>
+									<p>{{input type="text"}}元</p>
 								</div>
-								<div local-class="competition-products" class="tab-pane" id="tab2_products">
-									<p><span></span>竞品销售分析</p>
-									{{self-table model=columnsProductsValue columns=columnsProducts}}
+								<div local-class="input-right">
+									<p>指标增长</p>
+									<p>{{targetIncrease}}</p>
+								</div>
+							</div>
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>预算分配</p>
+									<p>{{input type="text"}}元</p>
+								</div>
+								<div local-class="input-right">
+									<p>预算所占%</p>
+									<p>{{budget}}</p>
+								</div>
+							</div>
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>时间分配</p>
+									<p>{{input type="text"}}天</p>
 								</div>
 
 							</div>
 						</div>
 					</div>
-					<div local-class="medicine-right">
-						<div local-class="inputarea">
-							<div local-class="input-left">
-								<p>指标设定</p>
-								<p>{{input type="text"}}元</p>
-							</div>
-							<div local-class="input-right">
-								<p>指标增长</p>
-								<p>{{targetIncrease}}</p>
-							</div>
-						</div>
-						<div local-class="inputarea">
-							<div local-class="input-left">
-								<p>预算分配</p>
-								<p>{{input type="text"}}元</p>
-							</div>
-							<div local-class="input-right">
-								<p>预算所占%</p>
-								<p>{{budget}}</p>
-							</div>
-						</div>
-						<div local-class="inputarea">
-							<div local-class="input-left">
-								<p>时间分配</p>
-								<p>{{input type="text"}}天</p>
-							</div>
+				{{/each}}
 
+				{{!-- {{#each medicines as |medic|}}
+					<div local-class="medicine medicine-component">
+						<div local-class="medicine-left">
+							<p local-class="title">{{medic.name}}</p>
+							<div local-class="properties">
+								<div local-class="property">
+									<p>药品市场潜力</p>
+									<p>{{medic.marketpotential}}</p>
+								</div>
+								<div local-class="property">
+									<p>潜力增长</p>
+									<p><span></span>{{medic.potentialgrowth}}%</p>
+								</div>
+								<div local-class="property">
+									<p>上期销售额</p>
+									<p>{{medic.previoussales}}</p>
+								</div>
+								<div local-class="property">
+									<p>上期增长</p>
+									<p><span></span>{{medic.previousgrowth}}%</p>
+								</div>
+								<div local-class="property">
+									<p>份额</p>
+									<p>{{medic.share}}%</p>
+								</div>
+								<div local-class="property">
+									<p>上期贡献率</p>
+									<p>{{medic.contributionrate}}%</p>
+								</div>
+							</div>
+							<div local-class="compare">
+
+								{{#bs-tab customTabs=true tagName="" as |tab| }}
+									{{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane1")}}
+											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select medic.detail.id}}>Tab 1 <span class="badge">{{badge}}</span></a>
+										{{/nav.item}}
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane2")}}
+											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select "pane2"}}>Tab 2</a>
+										{{/nav.item}}
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane3")}}
+											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select "pane3"}}>Tab 2</a>
+										{{/nav.item}}
+									{{/bs-nav}}
+
+									<div class="tab-content" local-class="right-content">
+										{{#tab.pane local-class="medicine-detail" elementId=medic.detail.id title="Tab 1" }}
+											<p><span></span>药品详情</p>
+											{{self-table model=model}}
+										{{/tab.pane}}
+										{{#tab.pane local-class="medicine-detail" elementId="pane2" title="Tab 2" }}
+											<p><span></span>历史部署</p>
+											{{self-table model=columnsHospitalValue columns=columnsHospital}}
+
+										{{/tab.pane}}
+										{{#tab.pane local-class="medicine-detail" elementId="pane3" title="Tab 3" }}
+											<p><span></span>竞品销售分析</p>
+											{{self-table model=columnsProductsValue columns=columnsProducts}}
+										{{/tab.pane}}
+									</div>
+								{{/bs-tab}}
+
+							</div>
+						</div>
+						<div local-class="medicine-right">
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>指标设定</p>
+									<p>{{input type="text"}}元</p>
+								</div>
+								<div local-class="input-right">
+									<p>指标增长</p>
+									<p>{{targetIncrease}}</p>
+								</div>
+							</div>
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>预算分配</p>
+									<p>{{input type="text"}}元</p>
+								</div>
+								<div local-class="input-right">
+									<p>预算所占%</p>
+									<p>{{budget}}</p>
+								</div>
+							</div>
+							<div local-class="inputarea">
+								<div local-class="input-left">
+									<p>时间分配</p>
+									<p>{{input type="text"}}天</p>
+								</div>
+
+							</div>
 						</div>
 					</div>
-				</div>
-
+				{{/each}} --}}
+			
 			</div>
 		</div>
 	</div>

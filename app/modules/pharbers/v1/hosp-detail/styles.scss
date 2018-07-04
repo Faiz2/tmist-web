@@ -594,4 +594,12 @@
 			}
 		}
 	}
+
+	.medicine-component {
+		.medicine-left .compare {
+			:global(.ember-view) {
+				height: auto;
+			}
+		}
+	}
 }
