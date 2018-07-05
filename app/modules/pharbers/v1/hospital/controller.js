@@ -54,7 +54,8 @@ export default Controller.extend({
 				'name': '校长',
 				'avatar': '/assets/images/hosp_seller.png'
 			}, // 负责代表
-			'medicine': [{
+			'medicines': [{
+				'id': 'ddd',
 				'name': '口服抗生素', // 药品名称
 				'potential': '54,561,334', // 药品潜力
 				'previoussales': '554,687', //上期销售额
