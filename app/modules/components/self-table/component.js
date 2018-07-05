@@ -56,7 +56,22 @@ export default Component.extend({
 	actions: {
 		sortByColumn(column) {
 
-		}
+		},
+		onColumnClick(column) {
+	      if (this.get('sortOnClick')) {
+	        if (column.sorted) {
+	          column.toggleProperty('ascending');
+	        } else {
+	          if (!this.get('multiColumnSort')) {
+	            this.get('table.sortedColumns').setEach('sorted', false);
+	          }
+	          column.set('sorted', true);
+
+	        }
+	      }
+	      this.sendAction('onColumnClick', ...arguments);
+	    },
+
 	}
 
 });
