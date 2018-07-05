@@ -246,7 +246,8 @@
 		min-height: 610px;
 		border-radius: 2*$default-radius;
 		.basic-info {
-			flex: 0 0 125px;
+			height: 180px;
+			// flex: 0 0 125px;
 			margin: 0;
 			padding: 15px 20px;
 			border-radius: 6px 6px 0 0;
@@ -368,14 +369,6 @@
 					}
 					}
 				}
-		}
-
-		.medicine-info {
-			flex: 1;
-			min-height: 485px;
-			border-radius: 0 0 6px 6px;
-			background: #FFFFFF;
-			box-shadow: 0 3px 14px 0 rgba(184,184,184,0.50);
 		}
 	}
 }

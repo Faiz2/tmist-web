@@ -6,7 +6,6 @@ export default Controller.extend({
 	tabLi: false,
 	targetIncrease: 0,
 	budget: 0,
-
 	hidden(hiddenProperty) {
 		if (this.get(hiddenProperty)) {
 			this.set(hiddenProperty, true)

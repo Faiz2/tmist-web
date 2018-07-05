@@ -1,7 +1,11 @@
 
 {{#light-table table height=selfheight tableClassNames='medicine-table' as |t|}}
 
-  {{t.head onColumnClick=(action 'sortByColumn') fixed=true}}
+  {{t.head
+      onColumnClick=(action 'sortByColumn')
+      click=(action 'onColumnClick' column)
+      fixed=true
+  }}
 
   {{#t.body as |body|}}
     {{!-- {{#body.expanded-row as |row|}}
