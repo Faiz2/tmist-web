@@ -2,8 +2,7 @@
 {{#light-table table height=selfheight tableClassNames='medicine-table' as |t|}}
 
   {{t.head
-      onColumnClick=(action 'sortByColumn')
-      click=(action 'onColumnClick' column)
+       onColumnClick=(action 'onColumnClick')
       fixed=true
   }}
 

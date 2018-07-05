@@ -9,7 +9,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 46,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -17,7 +17,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 88,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -25,7 +25,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 95,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -33,7 +33,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 26,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -41,7 +41,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 45,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -49,7 +49,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 87,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -57,7 +57,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 456,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -65,7 +65,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 4565,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -73,7 +73,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 2,
 		}, {
 			id: "霉素",
 			type: "口服抗生素",
@@ -81,7 +81,7 @@ export default Route.extend({
 			selltime: "2000",
 			medicalinsurance: "甲类",
 			development: "首仿",
-			companyprice: "44元",
+			companyprice: 144,
 		}];
 	}
 });

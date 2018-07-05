@@ -65,72 +65,70 @@
 			</div>
 		{{/if}}
 	</div>
-    <div local-class="content">
+	<div local-class="content">
 		<div local-class="hosp-nav" class="container"></div>
 		<div local-class="hosp-detail" class="container">
 			<div local-class="basic-info" class="row">
-                <div local-class="select">
-                    <span local-class="title" {{action 'tab'}}>代表-产品销售报告</span>
-                    <span class="glyphicon glyphicon-triangle-bottom" {{action 'tab'}}></span>
+				<div local-class="select">
+					<span local-class="title" {{action 'tab'}}>代表-产品销售报告</span>
+					<span class="glyphicon glyphicon-triangle-bottom" {{action 'tab'}}></span>
 					{{#if tabLi}}
-	                    <div local-class="drop">
-	                        <ul>
-	                            <li>
-	                                {{#link-to "pharbers.v1.result.whole"}}
-	                                    整体销售表现
-	                                {{/link-to}}
-	                            </li>
-	                            <li>
+						<div local-class="drop">
+							<ul>
+								<li>
+									{{#link-to "pharbers.v1.result.whole"}}
+										整体销售表现
+									{{/link-to}}
+								</li>
+								<li>
 									{{#link-to "pharbers.v1.result.hospital-report"}}
-									医院-产品销售报告
+										医院-产品销售报告
 									{{/link-to}}
 								</li>
-	                            <li>
+								<li>
 									{{#link-to "pharbers.v1.result.resource"}}
-									资源投入与产出
+										资源投入与产出
 									{{/link-to}}
 								</li>
-	                            <li>
+								<li>
 									{{#link-to "pharbers.v1.result.represent"}}
-									代表指标与资源
+										代表指标与资源
 									{{/link-to}}
 								</li>
-	                        </ul>
-	                    </div>
+							</ul>
+						</div>
 					{{/if}}
-                </div>
-                <div local-class="overview">
-                    <div local-class="block">
-                        <p local-class="head">表现最佳</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
-                        <p local-class="center">代表1-产品1</p>
-                        <div local-class="tab">
-                            <p local-class="share">份额12%</p>
-                            <p local-class="num"> <span class="glyphicon glyphicon-triangle-top"></span> 7%</p>
-                        </div>
-                    </div>
-                    <div local-class="block">
-                        <p local-class="head">贡献度最高</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
-                        <p local-class="center">医院1-产品1</p>
-                        <div local-class="tab">
-                            <p local-class="share">份额12%</p>
-                            <p local-class="num"> 7%</p>
-                        </div>
-                    </div>
-                    <div local-class="block hosp" style="top:85px;">
-                        <p local-class="head">平均指标达成</p>
-                        <p local-class="data">120%</p>
-                    </div>
-                </div>
-                <div class="table">
+				</div>
+				<div local-class="overview">
+					<div local-class="block">
+						<p local-class="head">表现最佳</p>
+						{{!-- <sub local-class="small">-份额增长最多</sub> --}}
+						<p local-class="center">代表1-产品1</p>
+						<div local-class="tab">
+							<p local-class="share">份额12%</p>
+							<p local-class="num"> <span class="glyphicon glyphicon-triangle-top"></span> 7%</p>
+						</div>
+					</div>
+					<div local-class="block">
+						<p local-class="head">贡献度最高</p>
+						{{!-- <sub local-class="small">-份额增长最多</sub> --}}
+						<p local-class="center">医院1-产品1</p>
+						<div local-class="tab">
+							<p local-class="share">份额12%</p>
+							<p local-class="num"> 7%</p>
+						</div>
+					</div>
+					<div local-class="block hosp" style="top:85px;">
+						<p local-class="head">平均指标达成</p>
+						<p local-class="data">120%</p>
+					</div>
+				</div>
 
-                </div>
 			</div>
 			<div local-class="medicine-info">
 				<div local-class="medicine">
 					<div local-class="right-content">
-						{{self-table model=columnsHospitalValue columns=columnsHospital}}
+						{{self-table model=columnsRepreReportValue columns=columnsRepreReport selfheight='480px'}}
 					</div>
 				</div>
 			</div>
