@@ -10,7 +10,7 @@
 			<span>信息库</span>
 			<span>当前部署分析</span>
 		</div>
-		<div local-class="menu menu-right"> 
+		<div local-class="menu menu-right">
 			<span local-class="budget" {{action 'budget'}}>预算 <span class="glyphicon glyphicon-triangle-bottom"></span> </span>
 			<span local-class="human" {{action 'human'}}>人力 <span class="glyphicon glyphicon-triangle-bottom"></span> </span>
 			<span local-class="btn-submit">提交执行 <span class="glyphicon glyphicon-menu-right"></span> </span>
@@ -19,11 +19,14 @@
 			<div local-class="budget-tip">
 				<div local-class="triangle"></div>
 				<div local-class="rectangle">
-					<p local-class="budget-text"> <span>预算</span> <span>600000/800000</span> <span>5%</span> </p>
+					<p local-class="budget-text"> <span>预算</span> <span>{{budget.used}}/{{budget.total}}</span> <span>{{budget.percentage}}%</span> </p>
 					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-							<span class="sr-only">40% 完成</span>
-						</div>
+						{{!-- <div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+							<span class="sr-only">{{budget.percentage}} 使用</span>
+						</div> --}}
+						{{#bs-progress as |p|}}
+							{{p.bar value=budget.percentage local-class="self-progress-bar"}}
+						{{/bs-progress}}
 					</div>
 				</div>
 			</div>
@@ -32,7 +35,15 @@
 			<div local-class="human-tip">
 				<div local-class="triangle"></div>
 				<div local-class="rectangle">
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>5%</span> </p>
+					{{#each manpower as |item|}}
+						<p local-class="human-text"> <span>{{item.name}}</span> <span>{{item.used}}/{{item.total}}天</span> <span>{{item.percentage}}%</span> </p>
+						<div local-class="self-progress" class="progress">
+							{{#bs-progress as |p|}}
+								{{p.bar value=item.percentage local-class="self-progress-bar"}}
+							{{/bs-progress}}
+						</div>
+					{{/each}}
+					{{!-- <p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>5%</span> </p>
 					<div local-class="self-progress" class="progress">
 						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
 							<span class="sr-only">95% 完成</span>
@@ -61,7 +72,7 @@
 						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
 							<span class="sr-only">80% 完成</span>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		{{/if}}
@@ -198,27 +209,47 @@
 			</div>
 		</div>
 
-		{{#each model as |item|}}
+		{{#each hospital as |item|}}
 			<div local-class="hosp-item" {{action 'hospDetail' item.hospid}}>
 				<div local-class="hosp-intro">
 					<div local-class="basic-info">
 						<img local-class="avatar" src="/assets/images/hosp_avatar.png" alt="">
 						<div local-class="name">
 							<p>{{item.name}}</p>
-							<p>{{item.style}}</p>
+							<p>{{item.level}}</p>
 						</div>
 					</div>
-					<p local-class="highlight"> <span>特色科室</span> <span>{{item.keshi}}</span> </p>
+					<p local-class="highlight"> <span>特色科室</span> <span>{{item.department}}</span> </p>
 					<p local-class="highlight"> <span>病床数量</span> <span>{{item.bed}}</span> </p>
-					<p local-class="highlight"> <span>门诊人次/年</span> <span>{{item.perpeople}}</span> </p>
-					<p local-class="highlight"> <span>手术台数/年</span> <span>{{item.pershoushu}}</span> </p>
+					<p local-class="highlight"> <span>门诊人次/年</span> <span>{{item.outpatient}}</span> </p>
+					<p local-class="highlight"> <span>手术台数/年</span> <span>{{item.surgery}}</span> </p>
 					<div local-class="user-info">
-						<p>负责代表</p>
-						<img src="/assets/images/hosp_seller.png" alt="">
+						<p>{{item.representive.name}}</p>
+						<img src= {{item.representive.avatar}} alt="">
 					</div>
 				</div>
 				<div local-class="medicine-container">
-					<div local-class="medicine-item">
+					{{#each item.medicine as |medic|}}
+						<div local-class="medicine-item">
+							<p local-class="title">{{medic.name}}</p>
+							<p local-class="potential"><span>药品潜力</span><span>{{medic.potential}}</span></p>
+							<div local-class="parameter">
+								<div local-class="sell-money param-item">
+									<p>上期销售额</p>
+									<p>{{medic.previoussales}}</p>
+								</div>
+								<div local-class="contribution param-item">
+									<p>贡献率</p>
+									<p>{{medic.contributionrate}}</p>
+								</div>
+								<div local-class="share param-item">
+									<p>份额</p>
+									<p>{{medic.share}}</p>
+								</div>
+							</div>
+						</div>
+					{{/each}}
+					{{!-- <div local-class="medicine-item">
 						<p local-class="title">口服抗生素</p>
 						<p local-class="potential"><span>药品潜力</span><span>5,940,000</span></p>
 						<div local-class="parameter">
@@ -235,8 +266,8 @@
 								<p>12%</p>
 							</div>
 						</div>
-					</div>
-					<div local-class="medicine-item">
+					</div> --}}
+					{{!-- <div local-class="medicine-item">
 						<p local-class="title">口服抗生素</p>
 						<p local-class="potential"><span>药品潜力</span><span>5,940,000</span></p>
 						<div local-class="parameter">
@@ -253,9 +284,9 @@
 								<p>12%</p>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 
-					<div local-class="medicine-item">
+					{{!-- <div local-class="medicine-item">
 						<p local-class="title">口服抗生素</p>
 						<p local-class="potential"><span>药品潜力</span><span>5,940,000</span></p>
 						<div local-class="parameter">
@@ -272,7 +303,7 @@
 								<p>12%</p>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		{{/each}}

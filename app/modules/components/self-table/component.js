@@ -5,7 +5,7 @@ import {
 import Table from 'ember-light-table';
 
 export default Component.extend({
-
+	selfheight: '180px',
 	columns: computed('columns', function() {
 		return [{
 			label: '商品名',
