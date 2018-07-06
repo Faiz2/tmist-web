@@ -6,6 +6,21 @@ import Table from 'ember-light-table';
 
 export default Component.extend({
 	selfheight: '180px',
+	sort: '',
+	dir: 'asc',
+	sortedModel: computed.sort('model', 'sortBy').readOnly(),
+	sortBy: computed('dir', 'sort', function() {
+		return [`${this.get('sort')}:${this.get('dir')}`];
+	}).readOnly(),
+	setRows: function(rows, that) {
+		that.get('table').setRows([]);
+		that.get('table').setRows(rows);
+	},
+	filterAndSortModel: function(that) {
+		let model = that.get('sortedModel');
+		// let result = model;
+		that.get('setRows')(model, that);
+	},
 	columns: computed('columns', function() {
 		return [{
 			label: '商品名',
@@ -54,24 +69,21 @@ export default Component.extend({
 		return new Table(this.get('columns'), this.get('model'));
 	}),
 	actions: {
-		sortByColumn(column) {
-
-		},
 		onColumnClick(column) {
-	      if (this.get('sortOnClick')) {
-	        if (column.sorted) {
-	          column.toggleProperty('ascending');
-	        } else {
-	          if (!this.get('multiColumnSort')) {
-	            this.get('table.sortedColumns').setEach('sorted', false);
-	          }
-	          column.set('sorted', true);
+			// console.log(column);
+			if (column.sorted) {
+				this.setProperties({
+					dir: column.ascending ? 'asc' : 'desc',
+					sort: column.get('valuePath'),
+					// canLoadMore: true,
+					// page: 0
+				});
+				// this.get('model').clear();
+				this.set('sort', column.get('valuePath'))
 
-	        }
-	      }
-	      this.sendAction('onColumnClick', ...arguments);
-	    },
-
+				this.get('filterAndSortModel')(this);
+			}
+		}
 	}
 
 });

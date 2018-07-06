@@ -65,7 +65,7 @@ export default Controller.extend({
 			}
 		];
 		this.columnsHospital = [{
-			label: '产品',
+			label: '时间',
 			valuePath: 'time',
 			width: '80px',
 			align: 'center',
