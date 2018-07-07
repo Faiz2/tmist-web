@@ -1,12 +1,8 @@
-<div local-class="title-bar">
-	<span local-class="date">2月份销售结果</span>
-	<span local-class="setting"> <img src="/assets/images/hosp-setting.png" alt=""> </span>
-</div>
 <div local-class="menu-bar">
 	<div local-class="menu menu-left">
-		<span>通知</span>
-		<span>信息库</span>
-		<span>当前部署分析</span>
+		<span>{{navText.title}}</span>
+		<span>{{navText.message}}</span>
+		<span>{{navText.analysis}}</span>
 	</div>
 	<div local-class="menu menu-right">
 		<span local-class="budget" {{action 'budget'}}>预算 <span class="glyphicon glyphicon-triangle-bottom"></span> </span>
@@ -22,6 +18,7 @@
 					{{#bs-progress as |p|}}
 						{{p.bar value=budgetPerc local-class="self-progress-bar"}}
 					{{/bs-progress}}
+
 				</div>
 			</div>
 		</div>
@@ -42,4 +39,3 @@
 		</div>
 	{{/if}}
 </div>
-{{outlet}}

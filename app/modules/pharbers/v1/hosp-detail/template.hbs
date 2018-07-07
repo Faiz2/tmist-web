@@ -19,11 +19,12 @@
 			<div local-class="budget-tip">
 				<div local-class="triangle"></div>
 				<div local-class="rectangle">
-					<p local-class="budget-text"> <span>预算</span> <span>600000/800000</span> <span>5%</span> </p>
+					<p local-class="budget-text"> <span>预算</span> <span>{{budget.used}}/{{budget.total}}</span> <span>{{budgetPerc}}%</span> </p>
 					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-							<span class="sr-only">40% 完成</span>
-						</div>
+						{{#bs-progress as |p|}}
+							{{p.bar value=budgetPerc local-class="self-progress-bar"}}
+						{{/bs-progress}}
+
 					</div>
 				</div>
 			</div>
@@ -32,36 +33,14 @@
 			<div local-class="human-tip">
 				<div local-class="triangle"></div>
 				<div local-class="rectangle">
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>5%</span> </p>
-					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
-							<span class="sr-only">95% 完成</span>
+					{{#each manpowerPerc as |item|}}
+						<p local-class="human-text"> <span>{{item.name}}</span> <span>{{item.used}}/{{item.total}}天</span> <span>{{item.percent}}%</span> </p>
+						<div local-class="self-progress" class="progress">
+							{{#bs-progress as |p|}}
+								{{p.bar value=item.percent local-class="self-progress-bar"}}
+							{{/bs-progress}}
 						</div>
-					</div>
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>25%</span> </p>
-					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-							<span class="sr-only">75% 完成</span>
-						</div>
-					</div>
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>60%</span> </p>
-					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-							<span class="sr-only">40% 完成</span>
-						</div>
-					</div>
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>5%</span> </p>
-					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-							<span class="sr-only">40% 完成</span>
-						</div>
-					</div>
-					<p local-class="human-text"> <span>代表1</span> <span>20/30天</span> <span>5%</span> </p>
-					<div local-class="self-progress" class="progress">
-						<div local-class="self-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-							<span class="sr-only">80% 完成</span>
-						</div>
-					</div>
+					{{/each}}
 				</div>
 			</div>
 		{{/if}}
@@ -80,13 +59,19 @@
 			<div local-class="basic-info" class="row">
 				<div local-class="info-left" class="col-md-8 col-sm-8">
 					<p local-class="title">
-						<span local-class="hosp-title">中日医院</span>
-						<span local-class="hosp-tab {{if baseInfo 'tab-active' ' '}}" {{action "changeTabsInfo"}}> 基础信息</span>
-						<span local-class="hosp-tab {{if news 'tab-active' ' '}}" {{action "changeTabsNews"}}>医院新闻动态</span>
-						<span local-class="hosp-tab {{if usePolicy 'tab-active' ' '}}" {{action "changeTabsPolicy"}}>用药政策/理念</span></p>
-					{{#if baseInfo}}
+						<span local-class="hosp-title">{{hospitalInfo.name}}</span>
+						<span local-class="hosp-tab {{if showBaseInfo 'tab-active' ' '}}" {{action "changeTabsInfo"}}> 基础信息</span>
+						<span local-class="hosp-tab {{if showNews 'tab-active' ' '}}" {{action "changeTabsNews"}}>医院新闻动态</span>
+						<span local-class="hosp-tab {{if showUsePolicy 'tab-active' ' '}}" {{action "changeTabsPolicy"}}>用药政策/理念</span></p>
+					{{#if showBaseInfo}}
 						<div local-class="tab-container">
-							<div local-class="tab-content">
+							{{#each hospitalInfo.basicinfo as |item|}}
+								<div local-class="tab-content">
+									<p>{{item.key}}</p>
+									<p>{{number-format item.value}}</p>
+								</div>
+							{{/each}}
+							{{!-- <div local-class="tab-content">
 								<p>医院类型</p>
 								<p>综合</p>
 							</div>
@@ -113,21 +98,30 @@
 							<div local-class="tab-content">
 								<p>住院人数/年</p>
 								<p>1000</p>
-							</div>
+							</div> --}}
 							<div local-class="tab-content">
 								<span>更多</span>
 							</div>
 						</div>
 					{{/if}}
-					{{#if news}}
+					{{#if showNews}}
 						<div local-class="tab-container">
-							<p local-class="news"> this is 新闻动态 area</p> second
+							{{#if hospitalInfo.news.exist}}
+								<h1>aaaa</h1>
+							{{else}}
+								<p local-class="news"> 暂未提供新闻动态</p>
+							{{/if}}
+							{{!-- <p local-class="news"> this is 新闻动态 area</p> second --}}
 						</div>
 					{{/if}}
-					{{#if usePolicy}}
+					{{#if showUsePolicy}}
 						<div local-class="tab-container">
-							<p local-class="policy"> this is 用药政策/理念 area</p> second
-
+							{{#if hospitalInfo.policy.exist}}
+								<h1>aaaa</h1>
+							{{else}}
+								<p local-class="news"> 用药政策/理念即将推出</p>
+							{{/if}}
+							{{!-- <p local-class="policy"> this is 用药政策/理念 area</p> second --}}
 						</div>
 					{{/if}}
 
@@ -228,35 +222,19 @@
 						</div>
 					</div>
 				</div> --}}
-				{{#each medicines as |medic|}}
+
+
+				{{!-- {{#each medicines as |medic|}}
 					<div local-class="medicine">
 						<div local-class="medicine-left">
 							<p local-class="title">{{medic.name}}</p>
 							<div local-class="properties">
-								<div local-class="property">
-									<p>药品市场潜力</p>
-									<p>{{medic.marketpotential}}</p>
-								</div>
-								<div local-class="property">
-									<p>潜力增长</p>
-									<p><span></span>{{medic.potentialgrowth}}%</p>
-								</div>
-								<div local-class="property">
-									<p>上期销售额</p>
-									<p>{{medic.previoussales}}</p>
-								</div>
-								<div local-class="property">
-									<p>上期增长</p>
-									<p><span></span>{{medic.previousgrowth}}%</p>
-								</div>
-								<div local-class="property">
-									<p>份额</p>
-									<p>{{medic.share}}%</p>
-								</div>
-								<div local-class="property">
-									<p>上期贡献率</p>
-									<p>{{medic.contributionrate}}%</p>
-								</div>
+								{{#each medic.overview as |ov|}}
+									<div local-class="property">
+										<p>{{ov.key}}</p>
+										<p>{{ov.value}}</p>
+									</div>
+								{{/each}}
 							</div>
 							<div local-class="compare">
 
@@ -312,14 +290,20 @@
 							</div>
 						</div>
 					</div>
-				{{/each}}
+				{{/each}} --}}
 
-				{{!-- {{#each medicines as |medic|}}
+				{{#each medicines as |medic|}}
 					<div local-class="medicine medicine-component">
 						<div local-class="medicine-left">
 							<p local-class="title">{{medic.name}}</p>
 							<div local-class="properties">
-								<div local-class="property">
+								{{#each medic.overview as |ov|}}
+									<div local-class="property">
+										<p>{{ov.key}}</p>
+										<p>{{number-format ov.value}}</p>
+									</div>
+								{{/each}}
+								{{!-- <div local-class="property">
 									<p>药品市场潜力</p>
 									<p>{{medic.marketpotential}}</p>
 								</div>
@@ -342,20 +326,20 @@
 								<div local-class="property">
 									<p>上期贡献率</p>
 									<p>{{medic.contributionrate}}%</p>
-								</div>
+								</div> --}}
 							</div>
 							<div local-class="compare">
 
 								{{#bs-tab customTabs=true tagName="" as |tab| }}
 									{{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
-										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane1")}}
-											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select medic.detail.id}}>Tab 1 <span class="badge">{{badge}}</span></a>
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.detail.id)}}
+											<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.detail.id}}>Tab 1 <span class="badge">{{badge}}</span></a>
 										{{/nav.item}}
-										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane2")}}
-											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select "pane2"}}>Tab 2</a>
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.history.id)}}
+											<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.history.id}}>Tab 2</a>
 										{{/nav.item}}
-										{{#nav.item local-class="tab" active=(bs-eq tab.activeId "pane3")}}
-											<a local-class="tabsa" href={{medic.href}} class="nav-link" role="tab" {{action tab.select "pane3"}}>Tab 2</a>
+										{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.competitionproducts.id)}}
+											<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.competitionproducts.id}}>Tab 2</a>
 										{{/nav.item}}
 									{{/bs-nav}}
 
@@ -364,12 +348,13 @@
 											<p><span></span>药品详情</p>
 											{{self-table model=model}}
 										{{/tab.pane}}
-										{{#tab.pane local-class="medicine-detail" elementId="pane2" title="Tab 2" }}
+
+										{{#tab.pane local-class="medicine-detail" elementId=medic.history.id title="Tab 2" }}
 											<p><span></span>历史部署</p>
 											{{self-table model=columnsHospitalValue columns=columnsHospital}}
-
 										{{/tab.pane}}
-										{{#tab.pane local-class="medicine-detail" elementId="pane3" title="Tab 3" }}
+
+										{{#tab.pane local-class="medicine-detail" elementId=medic.competitionproducts.id title="Tab 3" }}
 											<p><span></span>竞品销售分析</p>
 											{{self-table model=columnsProductsValue columns=columnsProducts}}
 										{{/tab.pane}}
@@ -396,7 +381,7 @@
 								</div>
 								<div local-class="input-right">
 									<p>预算所占%</p>
-									<p>{{budget}}</p>
+									<p>{{budgetCompute}}</p>
 								</div>
 							</div>
 							<div local-class="inputarea">
@@ -408,8 +393,8 @@
 							</div>
 						</div>
 					</div>
-				{{/each}} --}}
-			
+				{{/each}}
+
 			</div>
 		</div>
 	</div>
