@@ -5,5 +5,10 @@ export default Route.extend({
 		this._super(...arguments);
 		window.console.info("beforeModel pharbers index")
 	},
+	actions: {
+		login() {
+			this.transitionTo('pharbers.v1.train')
+		},
 
+	}
 });
