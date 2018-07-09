@@ -48,7 +48,7 @@ export default Controller.extend({
 			}) => {
 				if (status === "ok") {
 					// console.log('it is ok');
-					console.info(result.data.attribute);
+					// console.info(result.data.attribute);
 					this.set('overviewData', result.data.attribute.res_io.overview);
 					this.set('columnsResourceValue', result.data.attribute.res_io.value)
 				} else {

@@ -9,7 +9,7 @@ import {
 const {
 	keys
 } = Object;
-import $ from 'jquery';
+// import $ from 'jquery';
 
 export default Controller.extend({
 	ajax: inject(),
@@ -53,7 +53,7 @@ export default Controller.extend({
 				error,
 			}) => {
 				if (status === "ok") {
-					console.log('it is train');
+					// console.log('it is train');
 					// console.info(result);
 					this.set('checkpoints', result.data.attribute)
 				} else {

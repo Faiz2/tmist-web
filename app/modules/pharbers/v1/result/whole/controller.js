@@ -65,8 +65,8 @@ export default Controller.extend({
 				}
 			}
 		};
-		let url = '/api/scenario/budget/info';
-		let value = 'budget';
+		// let url = '/api/scenario/budget/info';
+		// let value = 'budget';
 		// this.sendAjax(url, condition, value);
 
 		this.get('ajax').request('/api/scenario/budget/info', this.getAjaxOpt(condition))
@@ -136,8 +136,8 @@ export default Controller.extend({
 				}
 			}
 		}
-		let url = 'api/scenario/humans/info';
-		let value = 'manpower';
+		// let url = 'api/scenario/humans/info';
+		// let value = 'manpower';
 		// this.sendAjax(url, condition, value);
 
 		this.get('ajax').request('/api/scenario/humans/info', this.getAjaxOpt(condition))
