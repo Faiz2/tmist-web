@@ -1,5 +1,5 @@
 <div local-class="detail-container">
-	<div local-class="title-bar">
+	{{!-- <div local-class="title-bar">
 		<span local-class="date">2月份销售结果</span>
 		<span local-class="setting"> <img src="/assets/images/hosp-setting.png" alt=""> </span>
 	</div>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		{{/if}}
-	</div>
+	</div> --}}
     <div local-class="content">
 		<div local-class="hosp-nav" class="container"></div>
 		<div local-class="hosp-detail" class="container">
@@ -100,9 +100,11 @@
 					{{/if}}
                 </div>
                 <div local-class="overview">
-                    <div local-class="block">
+					{{#each overviewData as |item|}}
+						{{overview-number itemData=item}}
+					{{/each}}
+                    {{!-- <div local-class="block">
                         <p local-class="head">贡献度最高</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
                         <p local-class="center">医院1-产品1</p>
                         <div local-class="tab">
                             <p local-class="share">预算占比</p>
@@ -111,7 +113,6 @@
                     </div>
                     <div local-class="block">
                         <p local-class="head">贡献度最高</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
                         <p local-class="center">医院1-产品1</p>
                         <div local-class="tab">
                             <p local-class="share">小宋</p>
@@ -120,7 +121,6 @@
                     </div>
                     <div local-class="block">
                         <p local-class="head">表现最佳</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
                         <p local-class="center">代表1-产品1</p>
                         <div local-class="tab">
                             <p local-class="share">份额12%</p>
@@ -130,13 +130,12 @@
 
                     <div local-class="block">
                         <p local-class="head">贡献度最高</p>
-                        {{!-- <sub local-class="small">-份额增长最多</sub> --}}
                         <p local-class="center">医院1-产品1</p>
                         <div local-class="tab">
                             <p local-class="share">6,039,535</p>
                             <p local-class="num"> 7%</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="table">
 

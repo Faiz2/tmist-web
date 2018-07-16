@@ -5,6 +5,7 @@ import {
 import Table from 'ember-light-table';
 
 export default Component.extend({
+	classNames: ['table-center'],
 	selfheight: '180px',
 	sort: '',
 	dir: 'asc',

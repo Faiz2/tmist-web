@@ -245,6 +245,7 @@
 		max-width: 1400px;
 		min-height: 610px;
 		border-radius: 2*$default-radius;
+
 		.basic-info {
 			height: 180px;
 			// flex: 0 0 125px;
@@ -253,9 +254,11 @@
 			border-radius: 6px 6px 0 0;
 			background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
 			box-shadow: 0 3px 14px 0 rgba(166,166,166,0.50);
+
 			.select {
 				color: #fff;
 				cursor: pointer;
+
 				.title {
 					display: inline-block;
 					background: rgba(255,255,255,0.10);
@@ -267,35 +270,42 @@
 					text-align: center;
 					margin-right: 20px;
 				}
+
 				.drop {
-					z-index: 1;
+					z-index: 3;
 					position: absolute;
 					width: 140px;
 					height: 130px;
 					background: rgba(255,255,255,1);
 					border: 1px solid #5c6d9b;
 					border-radius: 5px;
-					padding: 5px 5px;
+					padding: 5px;
+
 					li {
 						list-style: none;
 						text-align: left;
 						margin-left: -30px;
 						padding: 5px 0;
+
 						a {
 							color: #000;
 							text-decoration: none;
 						}
+
 						a:hover {
 							color: #ccc;
 						}
 					}
 				}
 			}
+
 			.overview {
 				text-align: center;
+
 				.block {
 					display: inline-block;
 					position: relative;
+					z-index: 2;
 					top: 70px;
 					margin: 0 8px;
 					width: 200px;
@@ -313,6 +323,7 @@
 						padding: 10px;
 						float: left;
 					}
+
 					.data {
 						font-family: PingFangTC-Regular;
 						font-size: 18px;
@@ -320,11 +331,13 @@
 						letter-spacing: 1.5px;
 						padding-top: 10px;
 						clear: both;
+
 						span {
 							color: #50E3C2;
 							margin-right: 10px;
 						}
 					}
+
 					.small {
 						font-family: PingFangTC-Regular;
 						font-size: 12px;
@@ -334,6 +347,7 @@
 						display: inline-block;
 						margin: 10px;
 					}
+
 					.center {
 						clear: both;
 						text-align: center;
@@ -342,6 +356,7 @@
 						color: #4A4A4A;
 						letter-spacing: 0.27px;
 					}
+
 					.tab {
 						width: 165px;
 						height: 25px;
@@ -350,25 +365,30 @@
 						background: #E6EBF0;
 						border-radius: 100px;
 						margin: 10px auto;
+
 						p {
 							display: inline-block;
 							padding: 0 10px;
 						}
+
 						.share {
 							float: left;
 						}
+
 						.num {
 							float: right;
+
 							.red {
-								color:red;
+								color: red;
 							}
 						}
+
 						span {
 							color: #50E3C2;
 						}
 					}
-					}
 				}
+			}
 		}
 
 		.medicine-info {
@@ -380,6 +400,7 @@
 		}
 	}
 }
+
 .medicine-info {
 	padding: 50px 20px;
 	margin: 0 auto;
@@ -394,15 +415,17 @@
 	font-size: 0;
 
 	.medicine {
-		margin:50px auto;
+		margin: 50px auto;
 		width: 100%;
 		height: 360px;
 		text-align: center;
 		border-radius: 3*$default-radius;
+
 		.right-content {
 			:global(.ember-view) {
 				height: auto;
 			}
+
 			:global(.medicine-table .lt-head tr:first-child) {
 				padding-bottom: 4px;
 				height: 20px;
@@ -412,6 +435,7 @@
 				letter-spacing: 0.83px;
 				color: #4A4A4A;
 			}
+
 			:global(.lt-row) {
 				height: 40px;
 				line-height: 40px;

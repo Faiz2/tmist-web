@@ -273,6 +273,7 @@
 
 				.drop {
 					position: absolute;
+					z-index: 3;
 					width: 140px;
 					height: 130px;
 					background: rgba(255,255,255,1);
@@ -304,6 +305,7 @@
 				.block {
 					position: relative;
 					top: 70px;
+					z-index: 2;
 					display: inline-block;
 					margin: 0 8px;
 					width: 200px;

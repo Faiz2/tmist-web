@@ -1,6 +1,9 @@
 import Controller from '@ember/controller';
-
+import {
+	inject
+} from '@ember/service';
 export default Controller.extend({
+	ajax: inject(),
 	budgetTip: false,
 	humanTip: false,
 	tabLi: false,
@@ -9,11 +12,57 @@ export default Controller.extend({
 			this.set(hiddenProperty, true)
 		}
 	},
+	getAjaxOpt(data) {
+		return {
+			method: 'POST',
+			dataType: 'json',
+			cache: false,
+			data: JSON.stringify(data),
+			contentType: 'application/json',
+			Accpt: 'application/json',
+		}
+	},
+	/**
+	 * 查询表格数据
+	 */
+	queryRepresent() {
+		let condition = {
+			"token": "token123456789",
+			"timestamp": 1530689119000,
+			"version": {
+				"major": 1,
+				"minor": 0
+			},
+			"data": {
+				"type": "report_detail",
+				"condition": {
+					"scenario_id": "scenario_id"
+				}
+			}
+		}
+		this.get('ajax').request('/api/report/repr_product', this.getAjaxOpt(condition))
+			.then(({
+				status,
+				result,
+				error,
+			}) => {
+				if (status === "ok") {
+					// console.log('it is ok');
+					// console.info(result.data.attribute);
+					this.set('overviewData', result.data.attribute.rep_prod_report.overview);
+					this.set('columnsRepreReportValue', result.data.attribute.rep_prod_report.value)
+				} else {
+					this.set('errorMessage', error.message);
+				}
+			}, () => {})
+	},
 	init() {
 		this._super(...arguments);
+		this.queryRepresent();
+		this.overviewData = [];
 		this.columnsRepreReport = [{
 			label: '代表名称',
-			valuePath: 'representative',
+			valuePath: 'rep',
 			width: '150px',
 			align: 'center',
 		}, {
@@ -48,13 +97,13 @@ export default Controller.extend({
 			align: 'center',
 		}, ];
 		this.columnsRepreReportValue = [{
-			'representative': 'repre name',
-			'prod': 'prod 01',
-			'current_sales': 8654,
-			'sales_growth': 53,
-			'target': 56865,
-			'achievement_rate': 35,
-			'contribution_rate': 57
+			'rep': 'aa name',
+			'prod': 'bb 01',
+			'current_sales': 1111,
+			'sales_growth': 1111,
+			'target': 1111,
+			'achievement_rate': 11,
+			'contribution_rate': 11
 		}];
 	},
 	actions: {
