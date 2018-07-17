@@ -77,7 +77,7 @@ export default Controller.extend({
 			"data": {
 				"type": "hosp_lst",
 				"condition": {
-					"scenario_id": "scenario_id"
+					"proposal_id":"5b42fd43ed925c05565b5bdb"
 				}
 			}
 		}
@@ -91,7 +91,7 @@ export default Controller.extend({
 				if (status === "ok") {
 					// console.log('it is ok');
 					this.set('currentMonth', result.data.attribute.currentMonth)
-					this.set('hospitalList', result.data.attribute.hospitalList)
+					this.set('hospitalList', result.data.attribute.hospitals)
 				} else {
 					this.set('errorMessage', error.message);
 				}
@@ -111,7 +111,7 @@ export default Controller.extend({
 			"data": {
 				"type": "budget_progress",
 				"condition": {
-					"scenario_id": "scenario_id"
+					"proposal_id":"5b42fd43ed925c05565b5bdb"
 				}
 			}
 		};
@@ -147,11 +147,11 @@ export default Controller.extend({
 			"data": {
 				"type": "budget_progress",
 				"condition": {
-					"scenario_id": "scenario_id"
+					"proposal_id":"5b42fd43ed925c05565b5bdb"
 				}
 			}
 		}
-		let url = 'api/scenario/humans/info';
+		let url = 'api/proposal/humans/info';
 		let value = 'manpower';
 		this.sendAjax(url, condition, value);
 		/**

@@ -63,12 +63,14 @@
 					<p local-class="highlight"> <span>门诊人次/年</span> <span>{{number-format item.outpatient}}</span> </p>
 					<p local-class="highlight"> <span>手术台数/年</span> <span>{{number-format item.surgery}}</span> </p>
 					<div local-class="user-info">
-						<p>{{item.representive.name}}</p>
-						<img src= {{item.representive.avatar}} alt="">
+						{{#each item.representives as |value|}}
+							<p>{{value.name}}</p>
+							<img src= {{value.avatar}} alt="">
+						{{/each}}
 					</div>
 				</div>
 				<div local-class="medicine-container">
-					{{#each item.medicine as |medic|}}
+					{{#each item.medicines as |medic|}}
 						<div local-class="medicine-item">
 							<p local-class="title">{{medic.name}}</p>
 							<p local-class="potential"><span>药品潜力</span><span>{{number-format medic.potential}}</span></p>
