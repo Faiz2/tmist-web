@@ -6,6 +6,7 @@ import {
 	computed
 } from '@ember/object';
 export default Controller.extend({
+	cookies: inject(),
 	ajax: inject(),
 	budgetTip: false,
 	humanTip: false,
@@ -67,7 +68,7 @@ export default Controller.extend({
 	 */
 	queryHospList() {
 		let condition = {
-			"token": "token123456789",
+			"token": this.get('cookies').read('user_token'),
 			"timestamp": 1530689119000,
 			"version": {
 				"major": 1,
@@ -80,8 +81,8 @@ export default Controller.extend({
 				}
 			}
 		}
-
-		this.get('ajax').request('/api/scenario/hospital/lst', this.getAjaxOpt(condition))
+		// console.info(this.get('cookies').read('user_token'))
+		this.get('ajax').request('/api/proposal/hospital/lst', this.getAjaxOpt(condition))
 			.then(({
 				status,
 				result,
@@ -101,7 +102,7 @@ export default Controller.extend({
 	 */
 	queryBudget() {
 		let condition = {
-			"token": "token123456789",
+			"token": this.get('cookies').read('user_token'),
 			"timestamp": 1530689119000,
 			"version": {
 				"major": 1,
@@ -114,7 +115,7 @@ export default Controller.extend({
 				}
 			}
 		};
-		let url = '/api/scenario/budget/info';
+		let url = 'api/proposal/budget/info';
 		let value = 'budget';
 		this.sendAjax(url, condition, value);
 		/**
@@ -137,7 +138,7 @@ export default Controller.extend({
 	 */
 	queryManpower() {
 		let condition = {
-			"token": "token123456789",
+			"token": this.get('cookies').read('user_token'),
 			"timestamp": 1530689119000,
 			"version": {
 				"major": 1,
